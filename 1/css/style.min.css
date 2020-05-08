@@ -1567,9 +1567,14 @@ img {
       width: 1.1rem;
       height: 1.1rem; } }
 
-section.screen.active .intro__message {
-  transform: translateY(0);
-  opacity: 1; }
+section.screen.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  z-index: 1; }
+  section.screen.active .intro__message {
+    transform: translateY(0);
+    opacity: 1; }
 
 .intro__label {
   margin: 0 0 1.6rem;
@@ -2523,7 +2528,10 @@ section.screen.active .intro__message {
   z-index: 1;
   overflow: hidden; }
   .screen--hidden {
-    display: none; }
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 0; }
   @media (max-width: 1024px) and (orientation: portrait) {
     .screen {
       min-height: calc(var(--vh, 1vh) * 100); } }
