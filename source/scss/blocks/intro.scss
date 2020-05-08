@@ -145,11 +145,17 @@
 //}
 
 section.screen {
-    &.active {
+    &.active { 
+        
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+        z-index: 1;
         // intro screen
         .intro__message {
             transform: translateY(0);
-            opacity: 1;
+            opacity: 1; 
+
         }
     }
 }
