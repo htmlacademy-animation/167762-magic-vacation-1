@@ -96,8 +96,8 @@
     
     transform: translateY(30px);
     opacity: 0;  
-    transition: all .5s ease-in-out;
-    
+    transition: all .5s cubic-bezier(0.4, 0.34, 0.38, 0.77);
+    transition-delay: 0.3s;
     
 
     @media (min-width: $stop-scaling) {
@@ -155,11 +155,32 @@ section.screen {
         .intro__message {
             transform: translateY(0);
             opacity: 1; 
-
         }
+        .screen__footer{
+            transform: translateY(0);
+            
+        }
+        
     }
 }
-
+.show-animation{
+    .page-header__logo{
+        opacity: 1;
+        transform: translateX(0);
+    }
+    .page-header__menu{
+        opacity: 1;
+        a{
+            &.active::after{
+                transform: translateX(0);
+            }
+            
+        }
+    }
+    .social-block{
+        transform: scale(1);
+    }
+}
 .intro__label {
     margin: 0 0 1.6rem;
     max-width: 25rem;
