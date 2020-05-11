@@ -330,3 +330,25 @@
     }
   }
 }
+
+.curtain{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    opacity: 0;
+    background-color: $c-dark;
+    z-index: 5;
+    transition: height 0.8s ease-in-out;
+}
+section.screen{
+
+    &.active{
+        .curtain{ 
+            height: 100%;
+            opacity: 1;
+        }
+    }
+    
+}
