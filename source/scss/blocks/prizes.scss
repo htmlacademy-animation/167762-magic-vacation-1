@@ -332,23 +332,21 @@
 }
 
 .curtain{
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 0%;
-    opacity: 0;
+    height: 100%;
+    opacity: 1;
     background-color: $c-dark;
-    z-index: 5;
-    transition: height 0.8s ease-in-out;
-}
-section.screen{
-
-    &.active{
-        .curtain{ 
-            height: 100%;
-            opacity: 1;
-        }
-    }
+    z-index:5;
+    transition: all 0.5s ease-in-out;
+    transform-origin: center bottom;
+    transform: scaleY(0);
     
+    &.curtain-show{
+        transform: scaleY(1);
+    }
 }
+
+ 

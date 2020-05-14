@@ -308,9 +308,12 @@
     }
 }
 
-.screen--prizes {
+section.screen--prizes{
     background-color: $c-dark;
-}
+    &.active{
+        z-index: 6; 
+    }
+} 
 
 .screen--game {
     position: relative;
