@@ -6,7 +6,8 @@ export default class FullPageScroll {
 
         this.screenElements = document.querySelectorAll(`.screen:not(.screen--result)`);
         this.menuElements = document.querySelectorAll(`.page-header__menu .js-menu-link`);
-        this.curtain = document.querySelector('.curtain');
+        this.curtain;
+        this.pageContent = document.querySelector('.page-content');
         this.activeScreen = 0;
         this.onScrollHandler = this.onScroll.bind(this);
         this.onUrlHashChengedHandler = this.onUrlHashChanged.bind(this);
@@ -18,7 +19,16 @@ export default class FullPageScroll {
         }));
         window.addEventListener(`popstate`, this.onUrlHashChengedHandler);
 
-        this.onUrlHashChanged();
+        this.onUrlHashChanged(); 
+    }
+    
+    createCurtain(){
+        this.curtain = document.querySelector('.curtain'); 
+        if(!(this.curtain)){ 
+            this.curtain = document.createElement('div');
+            this.curtain.classList.add('curtain');
+            this.pageContent.appendChild(this.curtain);
+        }  
     }
 
     onScroll(evt) {
@@ -43,22 +53,23 @@ export default class FullPageScroll {
     //54
     changeVisibilityDisplay() {
         let arrScreenElements = this.screenElements;
-        let activeScreenIndex = this.activeScreen;
+        let activeScreenIndex = this.activeScreen; 
+        this.createCurtain();
+        let $curtain = document.querySelector('.curtain');
         if (this.screenElements[this.activeScreen].classList.contains('screen--prizes')) {
-            this.curtain.classList.add('curtain-show');
-
+            $curtain.classList.add('curtain-show');
             setTimeout(function () {
                 arrScreenElements.forEach((screen) => { 
                     screen.classList.add(`screen--hidden`);
                     screen.classList.remove(`active`);
-                });
-                console.log('value2 ' + activeScreenIndex);
+                }); 
                 arrScreenElements[activeScreenIndex].classList.remove(`screen--hidden`);
                 arrScreenElements[activeScreenIndex].classList.add(`active`);
-            }, 1000);
+                $curtain.classList.add('curtain-invis');
+            }, 500);
         } else {
-            if(this.curtain.classList.contains('curtain-show')){
-                this.curtain.classList.remove('curtain-show')
+            if($curtain.classList.contains('curtain-show')){
+                $curtain.classList.remove('curtain-show');
             }
             this.screenElements.forEach((screen) => {
                 screen.classList.add(`screen--hidden`);
@@ -73,13 +84,13 @@ export default class FullPageScroll {
     changeActiveMenuItem() {
         const activeItem = Array.from(this.menuElements).find((item) => item.dataset.href === this.screenElements[this.activeScreen].id);
 //        console.log('activeItem ' + activeItem.dataset.href)
-        let arrScreenElements = this.screenElements;
+        let arrMenuElements = this.menuElements;
         if (activeItem) { 
-            if (activeItem.dataset.href === prizes) {
+            if (activeItem.dataset.href === "prizes") {
                 setTimeout(function () {
-                   arrScreenElements.forEach((item) => item.classList.remove(`active`));
+                   arrMenuElements.forEach((item) => item.classList.remove(`active`));
                     activeItem.classList.add(`active`);
-                }, 1000);
+                }, 300);
             }else{
                 this.menuElements.forEach((item) => item.classList.remove(`active`));
                 activeItem.classList.add(`active`);

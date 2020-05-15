@@ -260,8 +260,9 @@
             height: 2px;
             background-color: $c-light; 
             left: 0;
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
+            transform: scaleX(0);
+            transform-origin: right center;
+            transition: transform 0.4s ease;
 
             @media (max-width: $tablet) and (orientation: portrait) {
                 left: 0;
@@ -279,9 +280,9 @@
         &.active {
             &::after {
                 display: block; 
-                transition: all 0.3s cubic-bezier(0.4, 0.34, 0.38, 0.77);
-                transition-delay: 0.4s;
-                transform: translateX(-100%);
+                transition: all 0.3s ease-in-out;
+                transition-delay: 0.3s;
+                transform: scaleX(1); 
             }
         }
 
@@ -295,8 +296,9 @@
                 opacity: 1;
                 background-color: $c-purple;
                 width: 100%;
-                transform: translateX(0);
-//                transition: tr
+                transform: scaleX(1);
+                transform-origin: left center;
+                
             }
         }
     }

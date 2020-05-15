@@ -36,4 +36,8 @@ $socialListBlock.addEventListener('mouseover', function(){
 
 $socialListBlock.addEventListener('mouseout', function(){
     $socialBlockToggler.classList.remove('soc-block-hover');
-})
+});
+
+function migos(){
+    alert(123);
+}

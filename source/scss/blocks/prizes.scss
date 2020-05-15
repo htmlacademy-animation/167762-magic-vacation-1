@@ -338,7 +338,8 @@
     width: 100%;
     height: 100%;
     opacity: 1;
-    background-color: $c-dark;
+//    background-color: $c-dark;
+    background-color: red;
     z-index:5;
     transition: all 0.5s ease-in-out;
     transform-origin: center bottom;
@@ -346,6 +347,9 @@
     
     &.curtain-show{
         transform: scaleY(1);
+    }
+    &.curtain-invis{
+        opacity: 0;
     }
 }
 
