@@ -256,12 +256,12 @@
             content: "";
             position: absolute;
             bottom: 0;
+            right: 0; 
             width: 100%;
             height: 2px;
             background-color: $c-light; 
-            left: 0;
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
+            width: 0;
+            transition: width 0.3s ease;
 
             @media (max-width: $tablet) and (orientation: portrait) {
                 left: 0;
@@ -278,10 +278,10 @@
 
         &.active {
             &::after {
-                display: block; 
-                transition: all 0.3s cubic-bezier(0.4, 0.34, 0.38, 0.77);
-                transition-delay: 0.4s;
-                transform: translateX(-100%);
+                background-color: $c-light;
+                width: 100%; 
+                left: 0;
+                right: auto;  
             }
         }
 
@@ -290,13 +290,13 @@
             color: $c-purple;
             outline: none;
 
-            &::after {
-                display: block;
-                opacity: 1;
+            &::after { 
                 background-color: $c-purple;
-                width: 100%;
-                transform: translateX(0);
-//                transition: tr
+                width: 100%; 
+                left: 0;
+                right: auto;
+                
+                
             }
         }
     }

@@ -20,8 +20,7 @@ form();
 social();
 
 const fullPageScroll = new FullPageScroll();
-fullPageScroll.init();
-
+fullPageScroll.init(); 
 document.addEventListener('DOMContentLoaded', function(){
     let $body = document.querySelector('body');
     $body.classList.add('show-animation');
@@ -36,4 +35,8 @@ $socialListBlock.addEventListener('mouseover', function(){
 
 $socialListBlock.addEventListener('mouseout', function(){
     $socialBlockToggler.classList.remove('soc-block-hover');
-})
+});
+
+function migos(){
+    alert(123);
+}
