@@ -41,7 +41,9 @@ export default class FullPageScroll {
 
     onUrlHashChanged() {
         const newIndex = Array.from(this.screenElements).findIndex((screen) => location.hash.slice(1) === screen.id);
+        console.log('newIndex ' + newIndex)  
         this.activeScreen = (newIndex < 0) ? 0 : newIndex;
+        console.log('activeScreen ' + this.activeScreen)
         this.changePageDisplay();
     }
 
@@ -50,7 +52,8 @@ export default class FullPageScroll {
         this.changeActiveMenuItem();
         this.emitChangeDisplayEvent();
     }
-    //54
+    
+    
     changeVisibilityDisplay() {
         let arrScreenElements = this.screenElements;
         let activeScreenIndex = this.activeScreen; 
@@ -66,7 +69,9 @@ export default class FullPageScroll {
                 arrScreenElements[activeScreenIndex].classList.remove(`screen--hidden`);
                 arrScreenElements[activeScreenIndex].classList.add(`active`);
                 $curtain.classList.add('curtain-invis');
-            }, 500);
+            }, 400);
+            
+            setInterval(()=>{$curtain.remove();}, 800);
         } else {
             if($curtain.classList.contains('curtain-show')){
                 $curtain.classList.remove('curtain-show');
@@ -83,7 +88,7 @@ export default class FullPageScroll {
 
     changeActiveMenuItem() {
         const activeItem = Array.from(this.menuElements).find((item) => item.dataset.href === this.screenElements[this.activeScreen].id);
-//        console.log('activeItem ' + activeItem.dataset.href)
+ 
         let arrMenuElements = this.menuElements;
         if (activeItem) { 
             if (activeItem.dataset.href === "prizes") {

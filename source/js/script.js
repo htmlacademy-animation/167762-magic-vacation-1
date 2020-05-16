@@ -20,8 +20,7 @@ form();
 social();
 
 const fullPageScroll = new FullPageScroll();
-fullPageScroll.init();
-
+fullPageScroll.init(); 
 document.addEventListener('DOMContentLoaded', function(){
     let $body = document.querySelector('body');
     $body.classList.add('show-animation');
