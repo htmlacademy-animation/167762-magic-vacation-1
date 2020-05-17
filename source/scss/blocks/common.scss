@@ -1,0 +1,24 @@
+.flying-text{ 
+    margin-right: 5px;
+    &:last-child{
+        margin-right: 0;
+    }
+}
+.active{
+    .flying-text{
+        span{
+            transform: translate3d(0, 1em, 0); 
+            display: inline-block;
+        }
+        &.active{ 
+            span{
+                transform: translate3d(0, 0em, 0);  
+            } 
+        }
+    }
+ 
+}
+.page-title{
+    position: relative;
+    overflow: hidden;
+}

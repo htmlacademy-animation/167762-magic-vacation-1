@@ -40,10 +40,8 @@ export default class FullPageScroll {
     }
 
     onUrlHashChanged() {
-        const newIndex = Array.from(this.screenElements).findIndex((screen) => location.hash.slice(1) === screen.id);
-        console.log('newIndex ' + newIndex)  
-        this.activeScreen = (newIndex < 0) ? 0 : newIndex;
-        console.log('activeScreen ' + this.activeScreen)
+        const newIndex = Array.from(this.screenElements).findIndex((screen) => location.hash.slice(1) === screen.id); 
+        this.activeScreen = (newIndex < 0) ? 0 : newIndex; 
         this.changePageDisplay();
     }
 
@@ -71,7 +69,7 @@ export default class FullPageScroll {
                 $curtain.classList.add('curtain-invis');
             }, 400);
             
-            setInterval(()=>{$curtain.remove();}, 800);
+            setInterval(()=>{$curtain.remove()}, 800);
         } else {
             if($curtain.classList.contains('curtain-show')){
                 $curtain.classList.remove('curtain-show');

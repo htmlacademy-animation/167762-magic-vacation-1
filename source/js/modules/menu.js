@@ -4,9 +4,6 @@ export default () => {
     let menuLinks = document.querySelectorAll(`.js-menu-link`);
     
     
-
-    
-
     if (menuToggler) {
         menuToggler.addEventListener(`click`, function () {
             if (header.classList.contains(`page-header--menu-opened`)) {
@@ -20,24 +17,20 @@ export default () => {
     }
 
     for (let i = 0; i < menuLinks.length; i++) {
-        menuLinks[i].addEventListener(`click`, function (event) {
- 
-//            console.log(menuLinks[i].getAttribute('href'));
+        menuLinks[i].addEventListener(`click`, function (event) { 
             
             if (menuLinks[i].getAttribute('href') === '#prizes') {
                 event.preventDefault();
                 let curtain = document.querySelector('.curtain');
-                curtain.classList.add('curtain-show');
-                console.log(curtain)
+                curtain.classList.add('curtain-show'); 
                 let currentURL = menuLinks[i].href;
                 setTimeout(function () {
                      window.location = menuLinks[i].href;
-                }, 400);
-
+                }, 400); 
             }
             if (window.innerWidth < 1025) {
                 header.classList.remove(`page-header--menu-opened`);
-                document.body.classList.remove(`menu-opened`);
+                document.body.classList.remove(`menu-opened`); 
             }
         });
     }
