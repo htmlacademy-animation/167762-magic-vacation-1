@@ -1,0 +1,37 @@
+//анимирование элементов списка на странице правил (круги с цифрами)
+@keyframes boolk{
+    0%{
+        transform: scale(0);
+        opacity: 0;
+    }
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+//анимирование элементов списка на странице правил (текст)
+@keyframes appereance {
+    0%{
+        transform: translateX(15px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+//анимация появления кнопки на странице Правила
+@keyframes show-btn{
+    0{ 
+        color: rgba(95, 69, 140, 0);
+        transform: scaleX(0.0);
+    }
+    80%{
+        color: rgba(95, 69, 140, 0);
+    }
+
+    100%{
+        color: rgba(95, 69, 140, 1);
+        transform: scaleX(1);
+    }
+}

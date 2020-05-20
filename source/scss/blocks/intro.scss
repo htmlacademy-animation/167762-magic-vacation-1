@@ -146,7 +146,10 @@
 
 section.screen {
     &.active { 
-        
+        position: relative;
+        left: 0;
+        transform: scaleY(1);
+//        height: 100vh;
         opacity: 1;
         visibility: visible;
         pointer-events: all;
