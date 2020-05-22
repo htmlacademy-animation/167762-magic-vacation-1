@@ -8,6 +8,7 @@ import result from './modules/result.js';
 import form from './modules/form.js';
 import social from './modules/social.js';
 import FullPageScroll from './modules/full-page-scroll';
+import AccentTypographyBuild from './modules/accent-typography-bild.js';
 
 // init modules
 mobileHeight();
@@ -18,6 +19,7 @@ chat();
 result();
 form();
 social();
+
 
 const fullPageScroll = new FullPageScroll();
 fullPageScroll.init(); 
@@ -37,6 +39,32 @@ $socialListBlock.addEventListener('mouseout', function(){
     $socialBlockToggler.classList.remove('soc-block-hover');
 });
 
-function migos(){
-    alert(123);
-}
+//объекты слоганов
+const rulesPageTitleAnimagion = new AccentTypographyBuild(`rules__title`, 600, `show_letter`, `transform`);
+const introPageTitleAnimagion = new AccentTypographyBuild(`intro__title`, 600, `show_letter`, `transform`); 
+const introDatePageTitleAnimagion = new AccentTypographyBuild(`intro__date`, 300, `show_letter`, `transform`);
+
+//запуск анимации слогана
+setTimeout(() => {
+    rulesPageTitleAnimagion.runAnimation();
+}, 500);
+
+setTimeout(() => {
+    introPageTitleAnimagion.runAnimation();
+}, 500); 
+setTimeout(() => {
+    introDatePageTitleAnimagion.runAnimation();
+}, 1500);
+
+//window.addEventListener(`popstate`, ()=>{ 
+//    if(window.location.hash == '#rules'){
+//        setTimeout(() => {
+//            rulesPageTitleAnimagion.runAnimation();
+//        }, 500);
+//    }else{
+//       rulesPageTitleAnimagion.destroyAnimation(); 
+//    }
+//});
+
+let menuLinks = document.querySelectorAll(`.js-menu-link`);
+var pageTitles = document.querySelectorAll(`.page-title`);

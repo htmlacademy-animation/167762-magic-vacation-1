@@ -63,7 +63,7 @@
     line-height: 1.2;
     transform: translate3d(0px, 5px, 0px);
     opacity: 0;
-        transition: all 350ms ease-in-out 600ms;
+        transition: all 350ms ease-in-out 950ms;
 
     @media (min-width: $stop-scaling) {
         margin-left: 58px;
@@ -229,7 +229,26 @@
     }
 }
 
- 
+.flying-text{
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
+    line-height: 1.2;
+    &>span{
+        transform: translate3d(0em, 1.5em, 0em);
+        display: inline-block;
+        vertical-align: middle;
+        padding: 0 2px;
+    } 
+}
+.show_letter{
+    .flying-text{
+        span{
+            transform: translate3d(0em, 0em, 0em);
+        }
+    }
+}
+
 section.active {
     .rules__lead {
         transform: translate3d(0px, 0px, 0px);
@@ -239,11 +258,11 @@ section.active {
         @for $i from 1 through 4{
             &:nth-child(#{$i}){
                 p {
-                    animation: 400ms ease-in-out 850ms+(150 * $i) 1 normal none running appereance;
+                    animation: 450ms ease-in-out 1350ms+(200 * $i) 1 normal none running appereance;
                     animation-fill-mode: forwards;
                 }
             &::before {
-                animation: 400ms cubic-bezier(0.42, 0, 0.32, 1.74) 700ms+(150 * $i) normal none running boolk;
+                animation: 450ms cubic-bezier(0.42, 0, 0.32, 1.74) 1200ms+(200 * $i) normal none running boolk;
                 animation-fill-mode: forwards; 
             }
             }
@@ -253,7 +272,9 @@ section.active {
         animation-name: show-btn;
         animation-duration: 400ms;
         animation-timing-function: ease-in-out;
-        animation-delay: 1500ms;
+        animation-delay: 2200ms;
         animation-fill-mode: forwards;
     }
+    
 }
+
