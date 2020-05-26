@@ -35,3 +35,23 @@
         transform: scaleX(1);
     }
 }
+@keyframes back-arr-prev-btn{
+    0%{
+        transform: translateX(-90px) rotate(-180deg);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px) rotate(0deg);
+        opacity: 1;
+    }
+}
+@keyframes back-arr-next-btn{
+    0%{
+        transform: translateX(90px) rotate(180deg);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px) rotate(0deg);
+        opacity: 1;
+    }
+}
